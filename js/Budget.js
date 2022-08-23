@@ -18,8 +18,13 @@ function getElementById(elementId, value) {
 // Player Expenses
 document.getElementById('calculate-btn').addEventListener('click', function () {
 
+    // const arrayNumbers = addCard();
+    const select = document.getElementById('selected-values');
+    const selectString = select.innerText;
+    const newSelect = parseFloat(selectString);
+
     const newPerPlayer = getInputElementById('per-player-field');
-    const totalPlayerExpenses = newPerPlayer * 5;
+    const totalPlayerExpenses = newPerPlayer * newSelect;
     const currentTotalExpensesAmount = getElementById('Expenses-amount', totalPlayerExpenses);
 
 })
@@ -38,3 +43,16 @@ document.getElementById('calculate-total-btn').addEventListener('click', functio
     getElementById('total-amount', total);
     
 })
+
+
+
+
+
+
+
+// button('ronaldo-select-btn')
+// button('romos-select-btn')
+// button('thiago-select-btn')
+// button('Mbappé-select-btn')
+// button('neymar-select-btn')
+// button('lionel-select-btn')

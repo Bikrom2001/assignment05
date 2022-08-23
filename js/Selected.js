@@ -1,27 +1,38 @@
-function getPlayerNameById(elementPlayerName) {
-    const lionelMessiPlayer = document.getElementById(elementPlayerName);
-    const lionelMessiPlayerName = lionelMessiPlayer.innerText;
-    return lionelMessiPlayerName;
-}
 
-function setListItemsAdd(lionelMessiPlayerName) {
+const cardArray = [];
+
+function displayPlayerName() {
     const listContainer = document.getElementById('list-container');
-    const li = document.createElement('li');
-    li.innerText = lionelMessiPlayerName;
-    listContainer.appendChild(li);
-    return listContainer;
+    listContainer.innerText = '';
+    for (let i = 0; i < cardArray.length; i++) {
+        const index = cardArray[i];
+        const liList = document.createElement('li');
+        liList.innerText = index;
+        listContainer.appendChild(liList);
+        document.getElementById('selected-values').innerText = cardArray.length;
+    }
+
+
 }
 
-// Lionel Messi
-document.getElementById('lionel-select-btn').addEventListener('click', function () {
+function addCard(elemet) {
+    const playerName = elemet.parentNode.parentNode.children[0].innerText;
+    cardArray.push(playerName);
+    if (cardArray.length > 5) {
+        alert('You cannot select more than 5 players');
+        return;
+    }
+    // displayPlayerName();
+    disabled(elemet);
+}
 
-    const lionelMessiPlayerName = getPlayerNameById('lionel-messi');
-    const listContainer = setListItemsAdd(lionelMessiPlayerName);
 
-    const selectButton = document.getElementById('lionel-select-btn');
-    selectButton.setAttribute('disabled', true);
-})
+function disabled(elemet) {
+    elemet.setAttribute('disabled', true);
+    if (elemet.getAttribute('disabled')) {
+        elemet.style.background = 'gray';
+        elemet.style.color = 'white';
+    }
+    displayPlayerName();
+}
 
-
-
-// Neymar Jr
