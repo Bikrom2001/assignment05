@@ -25,34 +25,32 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
 
     const newPerPlayer = getInputElementById('per-player-field');
     const totalPlayerExpenses = newPerPlayer * newSelect;
-    const currentTotalExpensesAmount = getElementById('Expenses-amount', totalPlayerExpenses);
+    
+
+    if (isNaN(newPerPlayer)) {
+        alert("Can't you type the number? Why do you type the wrong number again and again?");
+    }
+    else{
+        const currentTotalExpensesAmount = getElementById('Expenses-amount', totalPlayerExpenses);
+    }
 
 })
 
 
 // Calculate Total
-document.getElementById('calculate-total-btn').addEventListener('click', function(){
+document.getElementById('calculate-total-btn').addEventListener('click', function () {
     const managerField = getInputElementById('Manager-field');
     const coachField = getInputElementById('Coach-field');
 
     const expensesAmount = document.getElementById('Expenses-amount');
-    const expensesAmountString = expensesAmount.innerText ;
+    const expensesAmountString = expensesAmount.innerText;
     const currentExpensesAmount = parseFloat(expensesAmountString);
-    
-    const total = currentExpensesAmount + managerField + coachField ;
-    getElementById('total-amount', total);
-    
+    const total = currentExpensesAmount + managerField + coachField;
+
+    if (isNaN(managerField, coachField)) {
+        alert("Can't you type the number? Why do you type the wrong number again and again?");
+    }
+    else {
+        getElementById('total-amount', total);
+    }
 })
-
-
-
-
-
-
-
-// button('ronaldo-select-btn')
-// button('romos-select-btn')
-// button('thiago-select-btn')
-// button('Mbappé-select-btn')
-// button('neymar-select-btn')
-// button('lionel-select-btn')
